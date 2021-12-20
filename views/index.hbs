@@ -1,0 +1,25 @@
+<h2>Список cтудентів</h2>
+
+{{#if badges.length}}
+<ul>
+    {{#each badges}}
+        <li class="todo">
+            <form action="/complete" method="POST">
+                <label>
+                    {{#if completed}}
+                        <span class="completed">{{title}}</span>
+                    {{else}}
+                        <span>{{title}}</span>
+                    {{/if}}
+
+                    <input type="hidden" value="{{_id}}" name="id">
+
+                    <button class="btn btn-big" type="submit">delete</button>
+                </label>
+            </form>
+        </li>
+    {{/each}}
+</ul>
+{{else}}
+<p>Нету студентів!</p>
+{{/if}}
